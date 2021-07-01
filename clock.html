@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Analogue Clock</title>
+</head>
+
+<body>
+    <div style="position: relative;">
+        <canvas id="secondHandCanvas" width="1400px" height="800px"
+            style="position: absolute; left: 0; top : 0; z-index: 1;"></canvas>
+        <canvas id="minuteHandCanvas" width="1400px" height="800px"
+            style="position: absolute; left: 0; top : 0; z-index: 2;"></canvas>
+        <canvas id="hourHandCanvas" width="1400px" height="800px"
+            style="position: absolute; left: 0; top : 0; z-index: 3;"></canvas>
+        <canvas id="clockLayoutCanvas" width="1400px" height="800px"
+            style="position: absolute; left: 0; top : 0; z-index: 4;"></canvas>
+    </div>
+    <script src="./clock.js"></script>
+    <script>
+
+        var clockLayoutCanvas = document.getElementById("clockLayoutCanvas");
+        var clockLayoutCtx = clockLayoutCanvas.getContext("2d");
+        var secondHandCanvas = document.getElementById("secondHandCanvas");
+        var secondHandCtx = secondHandCanvas.getContext("2d");
+        var minuteHandCanvas = document.getElementById("minuteHandCanvas");
+        var minuteHandCtx = minuteHandCanvas.getContext("2d");
+        var hourHandCanvas = document.getElementById("hourHandCanvas");
+        var hourHandCtx = hourHandCanvas.getContext("2d");
+        const clock = new AnalogueClock(clockLayoutCanvas, clockLayoutCtx,
+            hourHandCtx, minuteHandCtx, secondHandCtx)
+        clock.init();
+    </script>
+</body>
+
+</html>
